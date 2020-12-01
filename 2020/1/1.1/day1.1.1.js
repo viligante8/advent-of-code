@@ -7,12 +7,11 @@ const calculateDoubleSum = () => {
   
   for(let i = 0; i < input.length; i++) {
     result[2020 - input[i]] = input[i];
-    
+
     if(result[input[i]]) {
       return result[input[i]] * input[i];
     }
   }
-  
 };
 
 const answer = calculateDoubleSum();
