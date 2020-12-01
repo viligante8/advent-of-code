@@ -1,19 +1,11 @@
-const fs = require('fs');
-
-const calculateDoubleSum = () => {
-  let input = fs.readFileSync('../input').toString().split('\n').map(i => parseInt(i));
-
-  let result = {};
-  
-  for(let i = 0; i < input.length; i++) {
-    result[2020 - input[i]] = input[i];
-
-    if(result[input[i]]) {
-      return result[input[i]] * input[i];
-    }
-  }
-};
-
-const answer = calculateDoubleSum();
+const answer = require('fs')
+                .readFileSync('../input')
+                .toString().split('\n')
+                .map(i => parseInt(i))
+                .reduce((acc, curr) => {
+                  acc[2020 - curr] = curr;
+                  if(acc[curr]) return acc[curr] * curr;
+                  return acc;
+                }, {});
 
 console.log(answer);
