@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let input = fs.readFileSync('./input').toString().split('\n').map(i => parseInt(i));
+let input = fs.readFileSync('../input').toString().split('\n').map(i => parseInt(i));
 
 let result = {};
 

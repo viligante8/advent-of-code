@@ -1,7 +1,7 @@
 let result = {};
 
 var lineReader = require('readline').createInterface({
-  input: require('fs').createReadStream('./test')
+  input: require('fs').createReadStream('../test')
 });
 
 lineReader.on('line', line => {
