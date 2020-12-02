@@ -20,6 +20,4 @@ const checkPasswords = () => {
   return correctCount;
 };
 
-console.log(checkPasswords());
-
-module.exports.checkPasswords;
+module.exports.checkPasswords = checkPasswords;
