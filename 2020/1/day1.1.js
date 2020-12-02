@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const calculateDoubleSum = () => {
-  const input = fs.readFileSync('../input').toString().split('\n').map(i => parseInt(i));
+  const input = fs.readFileSync('./input').toString().split('\n').map(i => parseInt(i));
 
   let sums = {};
 

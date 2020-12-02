@@ -6,7 +6,7 @@ const fs = require('fs');
 // 2-9 c: ccccccccc
 
 const checkPasswords = () => {
-  const input = fs.readFileSync('../input').toString().split('\n');
+  const input = fs.readFileSync('./input').toString().split('\n');
   let correctCount = 0;
 
   for (let i = 0; i < input.length; i++) {

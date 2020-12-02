@@ -2,7 +2,7 @@ const calculateDoubleSum = (cb) => {
   let result = {};
 
   var lineReader = require('readline').createInterface({
-    input: require('fs').createReadStream('../input')
+    input: require('fs').createReadStream('./input')
   });
 
   lineReader.on('line', line => {

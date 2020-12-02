@@ -1,6 +1,6 @@
 const calculateDoubleSum = (cb) => {
-  const answer = require('fs')
-    .readFileSync('../input')
+  require('fs')
+    .readFileSync('./input')
     .toString().split('\n')
     .map(i => parseInt(i))
     .reduce((acc, curr) => {

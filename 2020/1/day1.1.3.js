@@ -2,7 +2,7 @@ const fs = require('fs');
 const TARGET_VALUE = 2020;
 
 const calculateDoubleSum = () => {
-  let input = fs.readFileSync('../input').toString().split('\n').map(i => parseInt(i)).sort((a,b) => a - b);
+  let input = fs.readFileSync('./input').toString().split('\n').map(i => parseInt(i)).sort((a,b) => a - b);
 
   let front = 0;
   let back = input.length - 1;
