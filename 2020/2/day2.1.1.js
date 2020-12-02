@@ -1,9 +1,9 @@
 const fs = require('fs');
 
 // Sample Input
-// 1-3 a: abcde
-// 1-3 b: cdefg
-// 2-9 c: ccccccccc
+// 0 // 1-3 a: abcde
+// 1 // 1-3 b: cdefg
+// 2 // 2-9 c: ccccccccc
 
 const checkPasswords = () => {
   const input = fs.readFileSync('./input').toString().split('\n');
@@ -11,7 +11,8 @@ const checkPasswords = () => {
 
   for (let i = 0; i < input.length; i++) {
     let inputParts = input[i].replace(/-/g, ' ').replace(/:/g, '').split(' ');
-    if(inputParts[3][inputParts[0] - 1] === inputParts[2] ^ inputParts[3][inputParts[1] - 1] === inputParts[2]) {
+    for(var letterCount=-1,index=-2; index != -1; letterCount++,index=inputParts[3].indexOf(inputParts[2],index+1) );
+    if (letterCount >= inputParts[0] && letterCount <= inputParts[1]){
       correctCount++;
     }
   }

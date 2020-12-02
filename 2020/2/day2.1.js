@@ -1,33 +1,18 @@
 const fs = require('fs');
 
 // Sample Input
-// 1-3 a: abcde
-// 1-3 b: cdefg
-// 2-9 c: ccccccccc
+// 0 // 1-3 a: abcde
+// 1 // 1-3 b: cdefg
+// 2 // 2-9 c: ccccccccc
 
 const checkPasswords = () => {
   const input = fs.readFileSync('./input').toString().split('\n');
   let correctCount = 0;
 
   for (let i = 0; i < input.length; i++) {
-    const policyCountLowerBound = input[i].split(':')[0].split(' ')[0].split('-')[0];
-    const policyCountUpperBound = input[i].split(':')[0].split(' ')[0].split('-')[1];
-    const policyLetter = input[i].split(':')[0].split(' ')[1];
-    const password = input[i].split(':')[1];
-    const passwordArr = password.split('');
-    passwordArr.shift();
-
-    const letterCounts = passwordArr.reduce((acc, curr) => {
-      if (acc[curr]) {
-        acc[curr]++;
-      } else {
-        acc[curr] = 1;
-      }
-      return acc;
-    }, {});
-
-    console.log(letterCounts);
-    if (letterCounts[policyLetter] >= policyCountLowerBound && letterCounts[policyLetter] <= policyCountUpperBound){
+    let inputParts = input[i].replace(/-/g, ' ').replace(/:/g, '').split(' ');
+    let letterCount = inputParts[3].length - inputParts[3].replace(new RegExp(inputParts[2], 'g'), '').length;
+    if (letterCount >= inputParts[0] && letterCount <= inputParts[1]){
       correctCount++;
     }
   }
