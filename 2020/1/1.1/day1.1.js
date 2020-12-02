@@ -15,6 +15,4 @@ const calculateDoubleSum = () => {
   }
 };
 
-const answer = calculateDoubleSum();
-
-console.log(answer);
+module.exports.calculateDoubleSum = calculateDoubleSum;

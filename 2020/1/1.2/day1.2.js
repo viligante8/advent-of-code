@@ -17,6 +17,4 @@ const calculateTripleSum = () => {
   }
 };
 
-const answer = calculateTripleSum();
-
-console.log(answer);
+module.exports.calculateTripleSum = calculateTripleSum;

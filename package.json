@@ -1,0 +1,24 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viligante8/advent-of-code.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viligante8/advent-of-code/issues"
+  },
+  "homepage": "https://github.com/viligante8/advent-of-code#readme",
+  "dependencies": {
+    "benchmark": "^2.1.4",
+    "microtime": "^3.0.0",
+    "performance-now": "^2.1.0"
+  }
+}
