@@ -89,3 +89,11 @@ t1 = now();
 day21.checkPasswords();
 t2 = now();
 console.log(`2.1:\t${t2 - t1}`);
+
+t1 = now();
+var count = 0;
+for(var i = 0; i < INPUT_STR.length; i++) {
+  if(INPUT_STR[i] === 'o') count++;
+}
+t2 = now();
+console.log(`Brian:\t${t2 - t1}`);
