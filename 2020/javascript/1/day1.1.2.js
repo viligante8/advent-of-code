@@ -1,18 +1,15 @@
 const calculateDoubleSum = (cb) => {
-  let result = {};
+  let complement = -1;
 
   var lineReader = require('readline').createInterface({
     input: require('fs').createReadStream('./input')
   });
 
   lineReader.on('line', line => {
-    result[2020 - line] = line;
-
-    if (result[line]) {
-       if(cb) {
-        cb(result[line] * line);
-       }
-    }
+    if (cb && line === complement)
+      cb(complement * line);
+    else
+      complement = 2020 - line;
   });
 };
 
