@@ -1,27 +1,26 @@
 const fs = require('fs');
+const requiredFields = [ 'byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid' ];//, 'cid' ];
 
-const countTreesInPath = () => {
-  const input = fs.readFileSync('./input').toString().split('\n').map(line => line.split(''));
+const validateCreds = () => {
+  const input = fs.readFileSync('./input').toString().split('\n');
 
-  let treeCount1 = 0;
-  let treeCount3 = 0;
-  let treeCount5 = 0;
-  let treeCount7 = 0;
-  let treeCount2 = 0;
+  let creds = '';
+  let validCreds = 0;
 
-  for (let i = 1; i < input.length; i++) {
-    treeCount1 += input[i * 1][(i * 1) % input[i].length] === '#' ? 1 : 0;
-    treeCount3 += input[i * 1][(i * 3) % input[i].length] === '#' ? 1 : 0;
-    treeCount5 += input[i * 1][(i * 5) % input[i].length] === '#' ? 1 : 0;
-    treeCount7 += input[i * 1][(i * 7) % input[i].length] === '#' ? 1 : 0;
-
-    if(i * 2 < input.length)
-      treeCount2 += input[i * 2][(i * 1) % input[i].length] === '#' ? 1 : 0;
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] === '') {
+      const credFields = creds.split(' ').filter(Boolean).map(d => d.split(':')[0]);
+      let diff = requiredFields.filter(x => !credFields.includes(x));
+      validCreds += diff.length === 0 ? 1 : 0;
+      creds = '';
+    } else {
+      creds += input[i] + ' ';
+    }
   }
 
-  return treeCount1 * treeCount3 * treeCount5 * treeCount7 * treeCount2;
+  return validCreds;
 };
 
-console.log(countTreesInPath());
+console.log(validateCreds());
 
-module.exports.countTreesInPath = countTreesInPath;
+module.exports.validateCreds = validateCreds;
