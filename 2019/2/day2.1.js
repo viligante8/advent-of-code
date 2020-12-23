@@ -1,3 +1,4 @@
+// This is a test. Ignore :)
 const fs = require('fs');
 
 let input = fs.readFileSync('./input').toString().split(',').map(x => parseInt(x));
